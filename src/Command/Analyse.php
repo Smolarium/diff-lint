@@ -71,15 +71,23 @@ class Analyse extends \PHPStan\Command\AnalyseCommand
             throw new \PHPStan\ShouldNotHappenException();
         }
 
-        return $inceptionResult->handleReturn(
+        $storage = new \Smolarium\DiffLint\Command\ErrorFormatter\Storage();
+        $result = $inceptionResult->handleReturn(
             $application->analyse(
                 $inceptionResult->getFiles(),
                 true,
                 new \PHPStan\Command\ErrorsConsoleStyle($input, $output),
-                new ErrorFormatter(),
+                new ErrorFormatter($storage),
                 $inceptionResult->isDefaultLevelUsed(),
                 $debug
             )
         );
+        $counter = $storage->countErrors();
+        echo $storage->countErrors() . \PHP_EOL;
+        if ($counter > 0) {
+            return 1;
+        }
+        
+        return $result;
     }
 }
