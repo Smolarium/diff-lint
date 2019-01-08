@@ -1,5 +1,5 @@
 {
-    "name": "Smolarium/diff-lint",
+    "name": "smolarium/diff-lint",
     "description": "diff-lint - PHP Changes only analysis tool",
     "license": [
         "MIT"
