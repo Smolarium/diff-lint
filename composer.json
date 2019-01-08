@@ -1,0 +1,23 @@
+{
+    "name": "Smolarium/diff-lint",
+    "description": "diff-lint - PHP Changes only analysis tool",
+    "license": [
+        "MIT"
+    ],
+    "require": {
+        "php": "~7.1",
+        "phpstan/phpstan": "^0.10.7",
+        "symfony/console": "~3.2 || ~4.0",
+        "jean85/pretty-package-versions": "^1.0.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "Smolarium\\DiffLint\\": [
+                "src/"
+            ]
+        }
+    },
+    "bin": [
+        "bin/diff-lint"
+    ]
+}
